@@ -21,6 +21,11 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: SAST
+        run: |
+          pip install semgrep
+          semgrep --config=auto
+
       - name: Ejecutar tests
         run: node ./node_modules/jest/bin/jest.js
 
